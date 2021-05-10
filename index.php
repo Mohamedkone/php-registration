@@ -1,6 +1,6 @@
 <?php 
 
-require 'base.php'
+require 'base.php';
 
 $firstname = $lastname = $email = $username = $password = $passwordConf = "";
 
@@ -8,32 +8,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 
     if (empty($_POST['firstname'])) {
-        $firstname_error = "First name required"
+        $firstname_error = "First name required";
     }else{
         $firstname = verifications($_POST['firstname']);
     }
     if (empty($_POST['lastname'])) {
-        $lastname_error = "Last name required"
+        $lastname_error = "Last name required";
     }else{
         $lastname = verifications($_POST['lastname']);
     }
     if (empty($_POST['email'])) {
-        $email_error = "Email required"
+        $email_error = "Email required";
     }else{
         $email = verifications($_POST['email']);
     }
     if (empty($_POST['username'])) {
-        $username_error = "username required"
+        $username_error = "username required";
     }else{
         $username = verifications($_POST['username']);
     }
     if (empty($_POST['password'])) {
-        $password_error = "password required"
+        $password_error = "password required";
     }else{
         $password = verifications($_POST['password']);
     }
     if (empty($_POST['passwordConf'])) {
-        $passwordConf_error = "Password confirmation required"
+        $passwordConf_error = "Password confirmation required";
     }else{
         $passwordConf = verifications($_POST['passwordConf']);
     }
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 function verifications($infos){
     $infos = trim($infos);
     $infos = stripslashes($infos);
-    $infos = htmlspecialchars($infos)
+    $infos = htmlspecialchars($infos);
     return $infos; 
 }
 ?>
@@ -71,29 +71,30 @@ function verifications($infos){
             <div class="name">
                 <div class="b b1">
                     <label for="Firstname">First Name</label>
-                    <input type="text" name="firstname" value="">
+                    <input type="text" name="firstname" value="<?php echo $firstname ; ?>">
+                    <span></span>
                 </div>
                 <div class="b b2">
                     <label for="Lastname">Last Name</label>
-                    <input type="text" name="lastname" value="">
+                    <input type="text" name="lastname" value="<?php echo $lastname ; ?>">
                 </div>
             </div>
             <div class="b b3">
                 <label for="Email">Email</label>
-                <input type="email" name="email" value="">
+                <input type="email" name="email" value="<?php echo $email ; ?>">
             </div>
             <div class="b b4">
                 <label for="Username">Username</label>
-                <input type="text" name="username" value="">
+                <input type="text" name="username" value="<?php echo $username ; ?>">
             </div>
             <div class="passwords">
                 <div class="b b5">
                     <label for="Password">Password</label>
-                    <input type="password" name="password" value="">
+                    <input type="password" name="password" value="<?php echo $password; ?>">
                 </div>
                 <div class="b b6">
                     <label for="PasswordConf">Confirm Password</label>
-                    <input type="password" name="passwordConf" value="">
+                    <input type="password" name="passwordConf" value="<?php echo $passwordConf; ?>">
                 </div>
             </div>
             <div class="terms">
